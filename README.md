@@ -21,4 +21,55 @@ practice: ライブコーディング練習用ブランチ
 1. web公開されてますように・・・・
 1. [3min] まとめ
 
-## 
+## Webapps 作成
+
+
+## Flask
+
+- requirements.txt の説明
+- application.py を新規作成
+
+```python
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
+def hello():
+    return 'Hello World!'
+
+```
+
+- run
+    ```bash
+      export FLASK_APP=application.py
+      flask run
+    ```
+    - [http://localhost:5000/](http://localhost:5000/)
+    - windowsの場合(コマンドライン)
+    ```python
+      set FLASK_APP=application.py
+      flask run
+    ```
+
+- ページルーティング
+```python
+@app.route('/greeting')
+def greeting():
+    return 'こんにちは！'
+```
+
+```python
+@app.route('/greeting')
+def greeting_name(user_name):
+    return '{uname}さん、疲れてる？'.format(uname=user_name)
+```
+
+```python
+@app.route('/greeting/<string:user_name>')
+def greeting_user(user_name):
+    return '{uname}さん、さようなら！'.format(uname=user_name)
+```
+
+- run
+
+- 
