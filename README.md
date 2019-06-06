@@ -33,6 +33,7 @@ practice: ライブコーディング練習用ブランチ
 from flask import Flask
 app = Flask(__name__)
 
+
 @app.route('/')
 def hello():
     return 'Hello World!'
@@ -40,6 +41,8 @@ def hello():
 ```
 
 - run
+    - PyCharmコミュニティエディションはFlask対応していません。Flask開発を幸せにやるならPyCharm有料版をお買い求めください！
+    - VSCodeやPyCharmコミュニティエディションでもできないことはないです↓だいじょうぶ。
     ```bash
       export FLASK_APP=application.py
       flask run
@@ -53,15 +56,9 @@ def hello():
 
 - ページルーティング
 ```python
-@app.route('/greeting')
+@app.route('/greeting/jp')
 def greeting():
     return 'こんにちは！'
-```
-
-```python
-@app.route('/greeting')
-def greeting_name(user_name):
-    return '{uname}さん、疲れてる？'.format(uname=user_name)
 ```
 
 ```python
@@ -70,6 +67,40 @@ def greeting_user(user_name):
     return '{uname}さん、さようなら！'.format(uname=user_name)
 ```
 
-- run
+```python
+from flask import request
 
-- 
+@app.route('/greeting')
+def greeting_name():
+    user = request.args.get('user')
+    return '{uname}さん、疲れてる？'.format(uname=user)
+```
+
+- run
+    - http://localhost:5000/
+    - http://localhost:5000/hello/jp
+    - http://localhost:5000/greeting/まーや
+    - http://localhost:5000/greeting?user=まーや（参加者に名前聞いてもいい）
+    
+- jinja2
+    - templatesディレクトリの作成
+    - index.htmlの作成
+```html
+<title>welcome!</title>
+
+<h1>Welcome! {{name}}さん!</h1>
+```
+
+```python
+import flask
+
+@app.route('/welcome/<string:user_name>')
+def welcome_index(user_name):
+    return flask.render_template(
+        'index.html',
+        name=user_name
+    )
+
+```
+
+- post form
