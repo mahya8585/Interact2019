@@ -24,7 +24,7 @@ practice: ライブコーディング練習用ブランチ
 ## Webapps 作成
 
 
-## Flask
+## Flask-1
 
 - requirements.txt の説明
 - application.py を新規作成
@@ -100,7 +100,49 @@ def welcome_index(user_name):
         'index.html',
         name=user_name
     )
-
 ```
 
+- run
+    - http://localhost:5000/welcome/まーや
+
+## git連携
+gitデプロイが開始したら下記説明＆時間つぶし
+
+- ログの閲覧方法
+- Azure devops
+- flask-2 (post form)
+
+リリース完了後
+
+- /
+- /hello/jp
+- /greeting/まーや
+- /greeting?user=まーや（参加者に名前聞いてもいい）
+
+## flask-2
+
 - post form
+    - index.htmlをコピー -> echo.html
+    ```html
+      <title>welcome!</title>
+        
+      <p>あなたの打った文字</p>
+      <h1>{{echo}}</h1>
+    ```
+    - index.htmlに追加
+    ```html
+      <form action="/echo" method="POST">
+        <input type="text" name="input_word" />
+        <button type="submit">GO!</button>
+      </form>
+    ```
+    - apiの追加
+   ```python
+      @app.route('/echo', methods=['POST'])
+      def echo():
+          echo_word = request.form['input_word']
+          return flask.render_template(
+              'echo.html',
+              echo=echo_word
+          )
+    ```

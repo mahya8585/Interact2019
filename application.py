@@ -31,3 +31,12 @@ def welcome_index(user_name):
         'index.html',
         name=user_name
     )
+
+
+@app.route('/echo', methods=['POST'])
+def echo():
+    echo_word = request.form['input_word']
+    return flask.render_template(
+        'echo.html',
+        echo=echo_word
+    )
