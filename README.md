@@ -27,7 +27,7 @@ practice: ライブコーディング練習用ブランチ
 ## Flask-1
 
 - requirements.txt の説明
-- application.py を新規作成
+- application.py を新規作成 -> application.pyの名前指定ポイント説明
 
 ```python
 from flask import Flask
@@ -118,6 +118,7 @@ gitデプロイが開始したら下記説明＆時間つぶし
 - /hello/jp
 - /greeting/まーや
 - /greeting?user=まーや（参加者に名前聞いてもいい）
+- /welcome/まーや
 
 ## flask-2
 
@@ -146,3 +147,7 @@ gitデプロイが開始したら下記説明＆時間つぶし
               echo=echo_word
           )
     ```
+ 
+ ## 再プッシュ＆確認
+ 
+ ## まとめ
