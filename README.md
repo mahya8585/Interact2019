@@ -26,7 +26,13 @@ practice: ライブコーディング練習用ブランチ
 
 ## Flask-1
 
-- requirements.txt の説明
+- requirements.txt の説明 -> パッケージ管理ツール・モジュール管理ツール
+    - Java : Maven/ Gradle
+    - Node : package.json
+```
+Flask==1.0.3
+```
+
 - application.py を新規作成 -> application.pyの名前指定ポイント説明
 
 ```python
