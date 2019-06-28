@@ -4,7 +4,6 @@ intract 2019 登壇準備資料
 master: 本番用
 practice: ライブコーディング練習用ブランチ
 
-
 ## 作業順
 
 1. [2min] ゴールの説明(スライド)
@@ -21,11 +20,20 @@ practice: ライブコーディング練習用ブランチ
 1. web公開されてますように・・・・
 1. [3min] まとめ
 
+
+## イベント前に準備しておくこと
+- Gitリポジトリの作成（このリポジトリ）
+- resource groupの作成
+- venv
+- PyCharmのオープン（本リポジトリオープン）
+
+
 ## Webapps 作成
 
 
 ## Flask-1
 
+- venvをみんなに見せる
 - requirements.txt の説明 -> パッケージ管理ツール・モジュール管理ツール
     - Java : Maven/ Gradle
     - Node : package.json
