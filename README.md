@@ -92,7 +92,7 @@ def greeting_name():
 
 - run
     - http://localhost:5000/
-    - http://localhost:5000/hello/jp
+    - http://localhost:5000/greeting/jp
     - http://localhost:5000/greeting/まーや
     - http://localhost:5000/greeting?user=まーや（参加者に名前聞いてもいい）
     
