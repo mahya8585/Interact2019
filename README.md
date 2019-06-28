@@ -21,12 +21,25 @@ practice: ライブコーディング練習用ブランチ
 1. web公開されてますように・・・・
 1. [3min] まとめ
 
+
+## イベント前に準備しておくこと
+- Gitリポジトリの作成（このリポジトリ）
+- resource groupの作成
+- venv
+- PyCharmのオープン（本リポジトリオープン）
+
+
 ## Webapps 作成
 
 
 ## Flask-1
+- requirements.txt の説明 -> パッケージ管理ツール・モジュール管理ツール
+    - Java : Maven/ Gradle
+    - Node : package.json
+```
+Flask==1.0.3
+```
 
-- requirements.txt の説明
 - application.py を新規作成 -> application.pyの名前指定ポイント説明
 
 ```python
@@ -78,7 +91,7 @@ def greeting_name():
 
 - run
     - http://localhost:5000/
-    - http://localhost:5000/hello/jp
+    - http://localhost:5000/greeting/jp
     - http://localhost:5000/greeting/まーや
     - http://localhost:5000/greeting?user=まーや（参加者に名前聞いてもいい）
     
