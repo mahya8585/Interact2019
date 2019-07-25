@@ -3,6 +3,17 @@
 # Add steps that analyze code, save the dist with the build record, publish to a PyPI-compatible index, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/python
 
+jobs:
+- job: http-kicker
+  server: true
+- task: InvokeRESTAPI@1
+  inputs:
+    connectionType: 'connectedServiceName'
+    serviceConnection: 'test-webapp'
+    method: 'GET'
+    waitForCompletion: 'false'
+    successCriteria: '200'
+
 trigger:
 - master
 
@@ -34,11 +45,3 @@ steps:
     pip install pytest pytest-azurepipelines
     pytest
   displayName: 'pytest'
-
-- task: InvokeRESTAPI@1
-  inputs:
-    connectionType: 'connectedServiceName'
-    serviceConnection: 'test-webapp'
-    method: 'GET'
-    waitForCompletion: 'false'
-    successCriteria: '200'
