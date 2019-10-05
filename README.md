@@ -154,12 +154,16 @@ def hello():
     
 ## インジェクション
 @app.route('/hello')
-def hello_ssti():
+def hello_injection():
     name = flask.request.args.get('name')
     hello_b = 'hello ' + name
     return flask.render_template_string(hello_b)
     
  - http://localhost:5000/hello?name=maaya
+ - http://localhost:5000/hello?name=<script>alert("hack")</script>
+ 
+ name_esc = flask.escape(name)
+ 
  - http://localhost:5000/hello?name=<script>alert("hack")</script>
  
  ## まとめ
