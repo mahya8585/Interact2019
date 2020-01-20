@@ -73,12 +73,6 @@ if __name__ == "__main__":
 - とりあえずyamlの設定を何も変更せずに実行する
   - CDパイプライン完成
 
-- テスト実行する
-  - 下記をyamlに追加
-  ```python
-  ```
-  - Tox testでテストの並列実行も可能な旨をコメント
-
 - 「DevOps pipeline」をDoneに移動する
 
 
