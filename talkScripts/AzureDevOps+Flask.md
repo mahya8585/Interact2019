@@ -62,64 +62,33 @@ if __name__ == "__main__":
 
 ### Repos
 
-【TBD】
-
-- (ブランチ作成)
 - (コミット・プッシュ)
 
 - 「DevOps reposと連携する」をDoneに移動する
 
-### testplans
-
-- 「Azure test plans」をDoingに変更する
-
-【TBD】
-
-- 「Azure test plans」をDoneに変更する
-
-### テストコード作成
-
-- 「テストコードを書く」をDoingに移動する
-
-【TBD】
-
-- (コミット・プッシュ)
-
-- 「テストコードを書く」をDoneに移動する
-
-### プルリク
-
-- 「プルリクを投げる」ｗDoingに移動する
-  
-【TBD】
-
-- (プルリクを投げる)
-- (レビューしてもらう)
-- (マージしてもらう)
-- (testplansの動きを確認する)
-
-- 「プルリクを投げる」をDoneに移動する
 
 ### DevOps pipeline
 
 - 「DevOps pipeline」をdoingに移動する
+- とりあえずyamlの設定を何も変更せずに実行する
+  - CDパイプライン完成
 
-【TBD】
-
-- 承認つきCD
+- テスト実行する
+  - 下記をyamlに追加
+  ```python
+  ```
+  - Tox testでテストの並列実行も可能な旨をコメント
 
 - 「DevOps pipeline」をDoneに移動する
+
+
+### プルリク
+
+- 「プルリクを投げる」をDoingに移動する
   
-### 追加コーディング
+- (プルリクを投げる)
+- (レビューしてもらう)
+- (マージしてもらう)
+- (pipelineの動きを確認する)
 
-```python
-@app.route('/greeting/<string:user_name>')
-def greeting_user(user_name):
-    return user_name + 'さん、こんばんは！'
-```
-
-- http://localhost:5000/greeting/maaya
-
-- DevOps　CI/CD 実行
-
-
+- 「プルリクを投げる」をDoneに移動する
