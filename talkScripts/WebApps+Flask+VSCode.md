@@ -43,6 +43,11 @@ B1を作成しました。自分にあったプランを選びましょう〜
 ```
 Flask==1.1.2
 ```
+- pip
+```
+(Windows&複数バージョン保持&最新バージョンへのpip)
+py -m pip install -r requirements.txt
+```
 
 - application.py を新規作成 -> 簡単にWeb Apps for Linuxで動かしたいならルーティングファイルの名前は「application.py」にすること
 
@@ -64,8 +69,11 @@ if __name__ == "__main__":
 - run
     - VSCodeでももちろんできるよ
     ```bash
+      (Mac)
       export FLASK_APP=application.py
       flask run
+      
+      もしくは右クリックでRun Python file in Terminal
     ```
     - [http://localhost:5000/](http://localhost:5000/)
     - windowsの場合(コマンドライン)
@@ -77,90 +85,65 @@ if __name__ == "__main__":
 - ページルーティング
     - 動的URL
     ```python
-    @app.route('/greeting/<string:user_name>')
-    def greeting_user(user_name):
-        return '{uname}さん、こんばんは！'.format(uname=user_name)
+    @app.route('/profile/<string:user_name>')
+    def user_profile(user_name):
+        return '{name}さんのプロフィール画面です'.format(name=user_name)
     ```
 
-    - ゲットパラメータ
+    - ゲットパラメータ(おまけ)
     ```python
     from flask import request
 
-    @app.route('/greeting')
+    @app.route('/profile')
     def greeting_name():
         user = request.args.get('user')
-        return '{uname}さん、おはよう？'.format(uname=user)
+        return '{uname}さんのプロフィール画面です(クエリパラメータ版)'.format(uname=user)
     ```
+    - jinja2の利用例(おまけ)
+      - templatesディレクトリの作成
+      - index.htmlの作成
+      ```html
+      <title>welcome!</title>
+      <h1>Welcome! {{name}}さん!</h1>
+      ```
+      - ルーティング
+      ```python
+      import flask
+
+      @app.route('/welcome/<string:user_name>')
+      def welcome_index(user_name):
+          return flask.render_template(
+              'index.html',
+              name=user_name
+          )
+      ```
 
 - run
     - http://localhost:5000/
-    - http://localhost:5000/greeting/maaya
-    - http://localhost:5000/greeting?user=まーや
+    - http://localhost:5000/profile/maaya
+    - http://localhost:5000/profile?user=まーや  (おまけ)
+    - http://localhost:5000/welcome/maaya    (おまけ)
     
 
 ## GitHubへプッシュ from VSCode
-
+- publish GitHub
+- publish対象のファイルを選択
+- (GitHubログイン)
+- プッシュされたらGitHub上での表示確認
 
     
 ## git連携
 - デプロイセンター設定する
+    - 最近Newデプロイセンターになりました(GitHubはGitHub Actionsに)
+      - 設定を作る -> 保存 -> デプロイ実行されるよ
     - ログの閲覧方法
-    - Azure devops
+    - Azure devops  (おまけ)
 - 完了チェック
     - /
-    - /greeting/maaya
-    - /greeting?user=maaya
+    - /profile/maaya
+    - /profile?user=maaya
     - /welcome/maaya
 
-## flask-2
-- jinja2の利用例
-    - templatesディレクトリの作成
-    - index.htmlの作成
-    ```html
-    <title>welcome!</title>
-    <h1>Welcome! {{name}}さん!</h1>
-    ```
-    - ルーティング
-    ```python
-    import flask
-
-    @app.route('/welcome/<string:user_name>')
-    def welcome_index(user_name):
-        return flask.render_template(
-            'index.html',
-            name=user_name
-        )
-    ```
-
-- run
-    - http://localhost:5000/welcome/maaya
-
-- post form
-    - echo.htmlの作成
-    ```html
-    <p>あなたの打った文字はこちら</p>
-    <h1>{{echo}}</h1>
-    ```
-    - index.htmlに追加
-    ```html
-      <form action="/echo" method="POST">
-        <input type="text" name="input_word" />
-        <button type="submit">GO!</button>
-      </form>
-    ```
-    - apiの追加
-   ```python
-      @app.route('/echo', methods=['POST'])
-      def echo():
-          echo_word = request.form['input_word']
-          return flask.render_template(
-              'echo.html',
-              echo=echo_word
-          )
-    ```
-
-- run
-    - http://localhost:5000/welcome/まーや
  
  ## まとめ
 
