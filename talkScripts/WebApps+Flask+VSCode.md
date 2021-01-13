@@ -1,9 +1,4 @@
-# VSCode利用版：WebApps+Flask チュートリアル的デモ
-
-master: 本番用
-practice: ライブコーディング練習用ブランチ
-
-# 当日コマンドやコード
+# Win10+VSCode版：WebApps+Flask チュートリアル的デモ
 
 ## 作業順
 
@@ -22,15 +17,17 @@ practice: ライブコーディング練習用ブランチ
 
 
 ## 事前準備しておいたこと
-- resource groupの作成
-- venv
 - VSCode
+  - extentions
+  - pyランチャーバージョンの設定
 - ブラウザ
 
 
 ## Webapps 作成
 
-B1を作成しました。自分にあったプランを選びましょう〜
+今回は後続の機能説明のためS1を作成。自分にあったプランを選びましょう〜    
+ちなみにVSCode上からもExtentionsいれれば作成できるし、CLI使ってコマンドラインから作成もできる。   
+が今回はAzureのポータル画面を見ていただきたいのであえてAzureポータルから作業します
 
 ## VSCodeの準備
 - Extentions
@@ -50,6 +47,7 @@ py -m pip install -r requirements.txt
 ```
 
 - application.py を新規作成 -> 簡単にWeb Apps for Linuxで動かしたいならルーティングファイルの名前は「application.py」にすること
+  - 実行ファイル名を変更することも可能です(WebApps構築後WebApps内のconfigファイルを変更すれば)
 
 ```python
 from flask import Flask
