@@ -38,7 +38,7 @@
 - requirements.txt の作成
 
 ```
-Flask==1.1.2
+Flask==2.0.1
 ```
 - pip
 ```
