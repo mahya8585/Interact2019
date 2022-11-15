@@ -22,10 +22,10 @@ if __name__ == '_main__':
 
 - intelliJ run
 - windows
-  - set FLASK_APP=application.py
+  - set FLASK_APP=app.py
   - flask run
 - mac
-  - export FLASK_APP=application.py
+  - export FLASK_APP=app.py
   - flask run
     
     
