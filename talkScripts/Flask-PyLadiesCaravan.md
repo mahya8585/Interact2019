@@ -2,7 +2,7 @@
 
 - new project
 - pip install flask
-- create new file > application.py
+- create new file > app.py
 
 ## Hello API
 
