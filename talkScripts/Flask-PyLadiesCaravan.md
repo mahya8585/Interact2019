@@ -40,7 +40,7 @@ def hello_user(user_name):
 ```
 
 - http://localhost:5000/
-- http://localhost:5000//maaya
+- http://localhost:5000/hello/maaya
 
 ### routing(GETパラメータ)
 
