@@ -34,9 +34,9 @@ if __name__ == '_main__':
 ### routing(動的パラメータ)
 
 ```python
-@app.route('/greeting/<string:user_name>')
-def greeting_user(user_name):
-    return '{uname}さん、こんばんは！'.format(uname=user_name)
+@app.route('/hello/<string:user_name>')
+def hello_user(user_name):
+    return '{uname}さん、こんちわ！'.format(uname=user_name)
 ```
 
 - http://localhost:5000/
@@ -46,9 +46,9 @@ def greeting_user(user_name):
 
 ```python
 @app.route('/greeting')
-def greeting_name():
+def greeting():
     user = flask.request.args.get('user')
-    display = 'こんにちは! ' + user
+    display = 'やぁやぁ! ' + user
     return flask.render_template_string(display)
 ```
 
